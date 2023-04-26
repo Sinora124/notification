@@ -1,4 +1,5 @@
 // import {InfoIcon, ExclamationIcon, FailIcon} from '../assets/svgs';
+import React from 'react';
 
 export const MessageModal = (props) => {
   const { setShow, closeModal, id, modalProps} = props;

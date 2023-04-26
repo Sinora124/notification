@@ -6,7 +6,7 @@ import { Modal as BootstrapModal } from 'bootstrap';
 const Notification = (props) => {
   const {group} = props
 
-const [pullMessages, setPullMessages] = useState('')
+const [pullMessages, setPullMessages] = useState([])
 const [modalShow, setModalShow] = useState(false);
 const [warningModalProps, setWarningModalProps] = useState({});
 const [currentIndex, setCurrentIndex] = useState(0);
@@ -18,13 +18,13 @@ const closeModal = (modalName, setShow) => {
     var modal = BootstrapModal.getOrCreateInstance(element);
     modal.hide();
   }
-  // setTimeout(() => {
-  //   if(currentIndex < pullMessages.length-1){
-  //     setWarningModalProps(pullMessages[currentIndex+1])
-  //     showModal('MessageModal', true, currentIndex+1)
-  //   }
-  //   setCurrentIndex(currentIndex+1) 
-  //  }, 500);
+  setTimeout(() => {
+    if(currentIndex < pullMessages.length-1){
+      setWarningModalProps(pullMessages[currentIndex+1])
+      showModal('MessageModal', true, currentIndex+1)
+    }
+    setCurrentIndex(currentIndex+1) 
+   }, 500);
 };
 
 const showModal = (props, setShow, index) => {
